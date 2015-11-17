@@ -1,0 +1,44 @@
+{
+	"items": [
+		{
+			"url": "http://placecreature.com/Bear/300/400",
+			"soldout": false
+		},
+		{
+			"url": "http://placecreature.com/Cat/500/500",
+			"soldout": true
+		},
+		{
+			"url": "http://placecreature.com/Deer/800/300",
+			"soldout": true
+		},
+		{
+			"url": "http://placecreature.com/Eagle/550/400",
+			"soldout": true
+		},
+		{
+			"url": "http://placecreature.com/Ferret/400/700",
+			"soldout": false
+		},
+		{
+			"url": "http://placecreature.com/Gorilla/700/520",
+			"soldout": false
+		},
+		{
+			"url": "http://placecreature.com/Hedgehog/300/400",
+			"soldout": true
+		},
+		{
+			"url": "http://placecreature.com/Kangaroo/600/550",
+			"soldout": false
+		},
+		{
+			"url": "http://placecreature.com/Leopard/500/500",
+			"soldout": true
+		},
+		{
+			"url": "http://placecreature.com/Raccoon/500/400",
+			"soldout": false
+		}
+	]
+}

@@ -1,0 +1,17 @@
+html(lang="ja")
+	head
+		meta(charset="UTF-8")
+		title EXAMPLE
+		meta(name="viewport", content="width=device-width,initial-scale=1")
+		link(rel="stylesheet", href="style.css")
+		block script
+	body
+		h1.title どうぶつポストカード
+		div.catalog
+			ul.catalog--list
+				for item, index in items
+					li.catalog--item(data-index="#{index + 1}")
+						div.catalog--item--thumbnail(style="background-image: url( '#{item.url}' );")
+						a.catalog--item--button(href="javascript:void(0)") 商品詳細
+						unless item.soldout
+							button.catalog--item--button.buy カートに入れる
