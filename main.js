@@ -9,6 +9,18 @@ jQuery( function ( $ ) {
 		COLUMN_MOBILE:  2,
 		columns:        null,
 
+		_adjustHeight: function ( columns ) {
+			var self = this;
+
+			var groupedItems = _.groupBy( self.$items, function ( el ) {
+				return Math.ceil( $( el ).data( 'index' ) / columns );
+			} );
+			_.each( groupedItems, function ( itemList ) {
+				$( itemList ).heightLine();
+			} );
+			return groupedItems;
+		},
+
 		initialize: function () {
 			var self = this;
 
@@ -16,12 +28,7 @@ jQuery( function ( $ ) {
 				self.columns = self.COLUMN_DISPLAY : self.columns = self.COLUMN_MOBILE;
 
 			self.$items       = $( '[data-index]' );
-			self.groupedItems = _.groupBy( self.$items, function ( el ) {
-				return Math.ceil( $( el ).data( 'index' ) / self.columns );
-			} );
-			_.each( self.groupedItems, function ( itemList ) {
-				$( itemList ).heightLine();
-			} );
+			self.groupedItems = self._adjustHeight( self.columns );
 		},
 
 		onResize: function () {
@@ -34,16 +41,12 @@ jQuery( function ( $ ) {
 			if ( new_columns === self.columns ) return;
 			self.columns = new_columns;
 
+			// 前回のheightLineを破棄する
 			_.each( self.groupedItems, function ( itemList ) {
 				$( itemList ).heightLine( 'destroy' );
 			} );
 
-			var groupedItems = _.groupBy( self.$items, function ( el ) {
-				return Math.ceil( ( $( el ).data( 'index' ) ) / self.columns );
-			} );
-			_.each( groupedItems, function ( itemList ) {
-				$( itemList ).heightLine();
-			} );
+			self._adjustHeight( self.columns );
 		}
 	};
 
